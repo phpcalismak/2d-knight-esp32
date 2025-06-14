@@ -30,10 +30,6 @@ extern unsigned long debugUpdateTime;
 void setup() {
   Serial.begin(115200);
   randomSeed(analogRead(0)); // Analog bir pinden okunan gürültü ile randomSeed başlat
-  // Bu, her açılışta farklı bir rastgele sayı dizisi elde etmenizi sağlar.
-  // analogRead(0) genellikle boş bir analog pinden okunduğunda rastgele sayı benzeri gürültü verir.
-  // Eğer ESP32'nizde analog pin 0 (GPIO0) bootloader düğmesine bağlıysa, farklı bir pin kullanın (örneğin GPIO34-39 gibi ADC1 pinleri)
-  // veya sadece millis() kullanabilirsiniz: randomSeed(millis()); (daha az rastgeledir ama iş görür)
 
   tft.init();
   tft.setRotation(1);
@@ -72,7 +68,7 @@ void loop() {
       if (currentTime - lastFrameTime >= FRAME_INTERVAL) {
         lastFrameTime = currentTime;
  // Rastgele can noktası oluşturma (her X milisaniyede bir şans)
-        // Ya da her frame'de bir şans:
+       
         if (random(0, 1000) < HEALTH_PICKUP_SPAWN_CHANCE) { // Örneğin 1000'de HEALTH_PICKUP_SPAWN_CHANCE şans
             spawnHealthPickUp(); // game_logic.cpp'den
         }
