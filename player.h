@@ -19,7 +19,6 @@ struct Player {
   bool attackButtonHeld;
   unsigned long attackButtonPressTime;
   int attackPower;
-   // Eski çizim pozisyonlarını saklamak için eklenenler
   float prevX, prevY;
   int prevWidth, prevHeight;
   const uint16_t* prevSprite; // Önceki sprite'ı hatırlamak için (opsiyonel)
