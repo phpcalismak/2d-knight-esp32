@@ -47,6 +47,6 @@ void printDebugInfo() {
 }
 
 // Function to check if attack button is pressed
-bool isAttackPressed(int btnPin) { // <-- ADD THIS FUNCTION
+bool isAttackPressed(int btnPin) { 
   return digitalRead(btnPin) == LOW;
 }
