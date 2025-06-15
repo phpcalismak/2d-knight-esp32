@@ -1,10 +1,6 @@
 // display_manager.cpp
 #include "display_manager.h"
 
-
-
-// TFT_eSPI nesneleri (global tanımlar)
-// Bu nesneler sadece bir kez burada tanımlanır. display_manager.h'de ise 'extern' olarak bildirilmişlerdir.
 TFT_eSPI tft = TFT_eSPI();
 TFT_eSprite player1Sprite = TFT_eSprite(&tft); // Karakterleri çizmek için kullanılacak
 TFT_eSprite player2Sprite = TFT_eSprite(&tft); // Karakterleri çizmek için kullanılacak
@@ -100,16 +96,8 @@ void drawCharacterSprite(Player& p) {
     p.prevSprite = currentSpriteData;
 }
 
-// --- Diğer mevcut fonksiyonlar ---
 
 void initSprites() {
-    // TFT'yi başlatma ve rotasyonu ayarlama main.ino setup'ta yapılıyor,
-    // burada sadece sprite nesnelerini oluşturuyoruz.
-    // tft.init(); 
-    // tft.setRotation(1); 
-
-    // Karakter sprite'larını 16-bit renk derinliğinde oluştur
-    // En büyük sprite'ın boyutuna göre oluşturmak en güvenlisidir.
     int maxSpriteWidth = max(KNIGHT_PANDA_WIDTH, KNIGHT_ATTACK_WIDTH);
     int maxSpriteHeight = max(KNIGHT_PANDA_HEIGHT, KNIGHT_ATTACK_HEIGHT);
 
@@ -216,18 +204,7 @@ void drawSlashEffect(int x, int y, bool facingRight, int power) {
 }
 
 void drawGame() {
-    // Oyun başladığında veya arka plan değişiyorsa, bgSprite'ı burada güncelleyebilirsiniz.
-    // Sabit bir arka plan kullanıyorsanız, setup() içinde bir kez çizmek yeterli olacaktır.
-    // Şimdilik, sadece değişen karakterler ve UI için temizleme ve çizim yapıyoruz.
-    // Arka planı her frame'de tekrar çizmek yerine, sadece değişen alanları güncellemek daha verimli.
-    // Eğer arka planınız sabit ise, bgSprite.pushSprite(0, 0); satırı main.ino setup() içinde olmalı.
-    // bgSprite.pushSprite(0, 0); // Eğer arka plan sabitse ve setup'ta çizildiyse bu satır yorumlu kalmalı
-
-    // Zemin çizgisini çiz
-
-    
     // Karakterleri çiz
-    // drawCharacterSprite fonksiyonu kendi içinde eski pozisyonları temizler ve doğru sprite'ı seçer
     drawCharacterSprite(player1);
     drawCharacterSprite(player2);
 
@@ -237,9 +214,6 @@ void drawGame() {
     }
      // Can veren noktayı çiz
     drawHealthPickUp();
-
-    // Sağlık çubuklarını çiz
-    
     // Sağlık çubuklarını çiz
     updateHealthBars();
 }
