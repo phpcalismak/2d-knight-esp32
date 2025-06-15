@@ -30,6 +30,10 @@ void calibrateJoysticks() {
   Serial.print("Joy1 center: X="); Serial.print(joy1XCenter); Serial.print(", Y="); Serial.println(joy1YCenter);
   Serial.print("Joy2 center: X="); Serial.print(joy2XCenter); Serial.print(", Y="); Serial.println(joy2YCenter);
 }
+// Function to check if attack button is pressed
+bool isAttackPressed(int btnPin) { 
+  return digitalRead(btnPin) == LOW;
+}
 
 void printDebugInfo() {
   Serial.print("P1: ");
@@ -46,7 +50,3 @@ void printDebugInfo() {
   Serial.print(" | Joystick2 raw: "); Serial.print(analogRead(JOY2_X_PIN)); Serial.print(","); Serial.println(analogRead(JOY2_Y_PIN));
 }
 
-// Function to check if attack button is pressed
-bool isAttackPressed(int btnPin) { 
-  return digitalRead(btnPin) == LOW;
-}
