@@ -13,6 +13,6 @@ extern int joy2YCenter;
 // Function prototypes
 void calibrateJoysticks();
 void printDebugInfo();
-bool isAttackPressed(int btnPin); // <-- ADD THIS LINE
+bool isAttackPressed(int btnPin); 
 
 #endif // JOYSTICK_MANAGER_H
