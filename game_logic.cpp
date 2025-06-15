@@ -6,8 +6,8 @@
 // Define game logic variables
 VisualEffect slashEffect = {false, 0, 0, true, 1, 0, 200};
 
-// --- DEFINE GLOBAL GAME STATE AND TIMING VARIABLES HERE ---
-// These are defined in *one* .cpp file, no 'extern' keyword here
+//GLOBAL GAME STATE AND TIMING VARIABLES
+
 GameState currentState = TITLE_SCREEN; // Initialize
 int winnerPlayer = 0; // Initialize
 unsigned long stateChangeTime = 0; // Initialize
